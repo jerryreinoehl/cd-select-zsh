@@ -87,7 +87,7 @@ __cd_select_exit() {
 }
 
 __cd_select_draw() {
-  local selected="${(j:/:)__cd_select_dirs:0:$__cd_select_index}"
+  local selected="${(j:/:)__cd_select_dirs[@]:0:$__cd_select_index}"
   local -i selected_len=$(( $#selected + 1 ))
   local -i total_len=$#PWD
 
@@ -111,7 +111,7 @@ __cd_select_down() {
 }
 
 __cd_select_accept() {
-  local selected="${(j:/:)__cd_select_dirs:0:$__cd_select_index}"
+  local selected="${(j:/:)__cd_select_dirs[@]:0:$__cd_select_index}"
   cd "$selected/"
   zle cd-select-exit
 }
