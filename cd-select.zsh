@@ -71,8 +71,6 @@ __cd_select_enter() {
   __cd_select_saved_buffer="$BUFFER"
   __cd_select_saved_cursor="$CURSOR"
 
-  local ZSH_HIGHLIGHT_MAXLENGTH=0
-
   zle kill-whole-line
   zle -K cd-select
 
