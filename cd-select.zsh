@@ -57,8 +57,8 @@ declare -i __cd_select_saved_cursor
   (( ! $+ZSH_AUTOSUGGEST_CLEAR_WIDGETS )) && return
 
   for widget in "$widgets[@]"; do
-    (( ! $ZSH_AUTOSUGGEST_CLEAR_WIDGETS[(Ie)$widget] )) \
-      && ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=($widget)
+    (( ! $ZSH_AUTOSUGGEST_CLEAR_WIDGETS[(Ie)"$widget"] )) \
+      && ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=("$widget")
   done
 }
 
