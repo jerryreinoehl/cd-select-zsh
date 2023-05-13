@@ -45,6 +45,7 @@ declare -a __cd_select_dirs
 declare -i __cd_select_dirs_length
 declare -i __cd_select_index
 declare __cd_select_saved_keymap=
+declare __cd_select_saved_prompt=
 declare __cd_select_saved_buffer=
 declare -i __cd_select_saved_cursor
 
@@ -66,6 +67,7 @@ __cd_select_enter() {
   __cd_select_dirs_length=$#__cd_select_dirs
   __cd_select_index=$(( __cd_select_dirs_length - 1 ))
   __cd_select_saved_keymap="$KEYMAP"
+  __cd_select_saved_prompt="$PROMPT"
   __cd_select_saved_buffer="$BUFFER"
   __cd_select_saved_cursor="$CURSOR"
 
@@ -81,6 +83,7 @@ __cd_select_enter() {
 
 __cd_select_exit() {
   BUFFER="$__cd_select_saved_buffer"
+  PROMPT="$__cd_select_saved_prompt"
   CURSOR="$__cd_select_saved_cursor"
   zle -K "$__cd_select_saved_keymap"
   zle .reset-prompt
